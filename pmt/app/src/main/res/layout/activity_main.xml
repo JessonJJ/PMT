@@ -32,7 +32,8 @@
             android:id="@+id/button_id_FULL_wakelock"
             android:text="@string/btn_FULL_wakelock"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:onClick="button_click_FULL_wakelock"/>
     </android.support.v7.widget.LinearLayoutCompat>
 
 </android.support.constraint.ConstraintLayout>

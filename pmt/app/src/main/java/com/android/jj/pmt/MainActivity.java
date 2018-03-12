@@ -12,10 +12,16 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "pmt";
 
+    //about btn PARTIAL wakelock
     private Button mButtonPARTIALWL;
     //true means get PARTIAL wakelock
     private boolean mbGetPARTIALWL = false;
     private PowerManager.WakeLock mWakeLockPARTIAL = null;
+
+    //about btn FULL wakelock
+    private Button mButtonFULLWL;
+    private boolean mbGetFULLWL = false;
+    private PowerManager.WakeLock mWakeLockFULL = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     tv.setText(stringFromJNI());
 
         mButtonPARTIALWL = (Button)findViewById(R.id.button_id_PARTIAL_wakelock);
+        mButtonFULLWL    = (Button)findViewById(R.id.button_id_FULL_wakelock);
     }
 
     /**
@@ -48,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
             mWakeLockPARTIAL = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, TAG);
             if (mWakeLockPARTIAL != null) {
                 mWakeLockPARTIAL.acquire();
+                mButtonPARTIALWL.setText("get PARTIAL wl");
             }
-            mButtonPARTIALWL.setText("get PARTIAL wl");
+
         } else {
             mbGetPARTIALWL = !mbGetPARTIALWL;
             release_PARTIAL_wakelock();
@@ -61,6 +69,30 @@ public class MainActivity extends AppCompatActivity {
         if (mWakeLockPARTIAL != null) {
             mWakeLockPARTIAL.release();
             mWakeLockPARTIAL = null;
+        }
+    }
+
+    public void button_click_FULL_wakelock(View v) {
+        Log.i(TAG, "button_click_FULL_wakelock: mbGetFULLWL=" + mbGetFULLWL);
+        if (mbGetFULLWL == false) {
+            mbGetFULLWL = !mbGetFULLWL;
+            PowerManager pm = (PowerManager)getSystemService(Context.POWER_SERVICE);
+            mWakeLockFULL = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, TAG);
+            if (mWakeLockFULL != null) {
+                mWakeLockFULL.acquire();
+                mButtonFULLWL.setText("get FULL wakelock");
+            }
+        } else {
+            mbGetFULLWL = !mbGetFULLWL;
+            releaseFULL_wakelock();
+            mButtonFULLWL.setText("release FULL wakelock");
+        }
+    }
+
+    private void releaseFULL_wakelock() {
+        if (mWakeLockFULL != null) {
+            mWakeLockFULL.release();
+            mWakeLockFULL = null;
         }
     }
 }
