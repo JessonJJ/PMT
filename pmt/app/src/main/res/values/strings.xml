@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">pmt</string>
+    <string name="btn_PARTIAL_wakelock">release PARTIAL wakelock</string>
+    <string name="btn_FULL_wakelock">realese FULL wakelock</string>
 </resources>
