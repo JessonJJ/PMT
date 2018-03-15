@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/fragment_111_powermanager"
         android:text="powermanager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/button_id_PARTIAL_wakelock"
+        android:text="@string/btn_PARTIAL_wakelock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="button_click_PARTIAL_wakelock"/>
+
+    <Button
+        android:id="@+id/button_id_FULL_wakelock"
+        android:text="@string/btn_FULL_wakelock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="button_click_FULL_wakelock"/>
 </LinearLayout>
