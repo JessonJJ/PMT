@@ -2,4 +2,12 @@
     <string name="app_name">pmt</string>
     <string name="btn_PARTIAL_wakelock">release PARTIAL wakelock</string>
     <string name="btn_FULL_wakelock">realese FULL wakelock</string>
+    
+    <string-array name="spinner_array_alarm">
+        <item>RTC_WAKEUP</item>
+        <item>RTC</item>
+        <item>ELAPSED_REALTIME_WAKEUP</item>
+        <item>ELAPSED_REALTIME</item>
+        <item>RTC_POWEROFF_WAKEUP</item>
+    </string-array>
 </resources>

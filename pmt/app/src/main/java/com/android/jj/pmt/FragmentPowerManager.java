@@ -18,7 +18,7 @@ import android.widget.Button;
  */
 
 public class FragmentPowerManager extends Fragment {
-    private static final String TAG = "pmt+fm";
+    private static final String TAG = "pmt+power";
 
     //about btn PARTIAL wakelock
     private Button mButtonPARTIALWL;
